@@ -1,19 +1,21 @@
 require 'rails_helper'
 
 describe "An Admin can import playlist" do
-  let(:tutorial) { create(:tutorial) }
-  let(:admin)    { create(:admin) }
+  before :each do
+    @admin = create(:admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+  end
 
-  scenario "by importing from youtube", :js do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+  it "by importing from youtube" do
 
-    visit new_admin_tutorial_path(tutorial)
+    visit new_admin_tutorial_path
     # save_and_open_page
-    click_on "Import YouTube Playlist"
 
-    fill_in "playlist[id]", with: "#{playlist.id}"
-    click_on "Create Tutorial" #not sure if this is true or Playlist
-    expect(current_path).to eq(admin_dashboard_path(admin))
+    fill_in 'Title', with: "New Import"
+    fill_in 'Description', with: "New Import Description"
+    fill_in 'Thumbnail', with: ""
+    click_on "Import YouTube Playlist"
+    expect(current_path).to eq(admin_dashboard_path)
 
     expect(page).to have_content("Successfully created tutorial. View it here.")
     click_on "View it here."
