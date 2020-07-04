@@ -6,9 +6,10 @@ class YoutubeService
   end
 
   def playlist_info(id)
-     params = { part: 'snippet,contentDetails', playlistId: id}
+    # need to get more than 50
+    params = { part: 'snippet,contentDetails', playlistId: id }
 
-     get_json('youtube/v3/playlistItems', params)
+    get_json('youtube/v3/playlistItems', params)
   end
 
   private
