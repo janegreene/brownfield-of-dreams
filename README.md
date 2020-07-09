@@ -21,6 +21,7 @@ online learning. Learning goals from this project were to build on top of brownf
 
 * [DTR Document](https://gist.github.com/janegreene/b1a60f606e61b24d9be6d5d7576c9396)
 
+
 ## Technologies
 * [Stimulus](https://github.com/stimulusjs/stimulus)
 * [will_paginate](https://github.com/mislav/will_paginate)
@@ -50,6 +51,10 @@ online learning. Learning goals from this project were to build on top of brownf
 - figaro
 
 # Getting Started
+
+<p align="center">
+ <img src="https://i.imgur.com/VKbBWpW.png">
+</p>
 
 ## Installing
 
